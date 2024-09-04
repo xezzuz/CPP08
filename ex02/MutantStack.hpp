@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 19:35:13 by nazouz            #+#    #+#             */
-/*   Updated: 2024/09/02 20:04:36 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/09/03 19:10:04 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 #include <iostream>
 #include <stack>
+#include <deque>
 
-template <typename T>
-class MutantStack : public std::stack<T> {
+template < typename T, typename container = std::deque<T> >
+class MutantStack : public std::stack<T, container> {
 	public:
-		typedef typename std::stack<T>::iterator 			iterator;
-		typedef typename std::stack<T>::const_iterator 		const_iterator;
+		typedef typename container::iterator 			iterator;
+		typedef typename container::const_iterator 		const_iterator;
 		// reverse interator // reverse const iterator
 
 		MutantStack();
@@ -36,27 +37,27 @@ class MutantStack : public std::stack<T> {
 		}
 };
 
-template <typename T>
-MutantStack<T>::MutantStack() : std::stack<T>() {
+template < typename T, typename container >
+MutantStack<T, container>::MutantStack() : std::stack<T, container>() {
 	std::cout << "MutantStack::Constructor Called" << std::endl;
 }
 
-template <typename T>
-MutantStack<T>::MutantStack(const MutantStack& original) : std::stack<T>(original) {
+template < typename T, typename container >
+MutantStack<T, container>::MutantStack(const MutantStack& original) : std::stack<T, container>(original) {
 	std::cout << "MutantStack::Copy Constructor Called" << std::endl;
 }
 
-template <typename T>
-MutantStack<T>&	MutantStack<T>::operator=(const MutantStack<T>& original) {
+template < typename T, typename container >
+MutantStack<T, container>&	MutantStack<T, container>::operator=(const MutantStack<T, container>& original) {
 	if (this != &original)
-		std::stack<T>::operator=(original);
+		std::stack<T, container>::operator=(original);
 	std::cout << "MutantStack::Copy Assignment Operator Called" << std::endl;
 	return *this;
 }
 
-template <typename T>
-MutantStack<T>::~MutantStack() {
-	std::cout << "MutantStack::Constructor Called" << std::endl;
+template < typename T, typename container >
+MutantStack<T, container>::~MutantStack() {
+	std::cout << "MutantStack::Destructor Called" << std::endl;
 }
 
 #endif
