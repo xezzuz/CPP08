@@ -6,11 +6,15 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 15:46:20 by nazouz            #+#    #+#             */
-/*   Updated: 2024/09/02 17:28:22 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/09/09 12:02:18 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+
+Span::Span() {
+	// private default constructor
+}
 
 Span::Span(unsigned int n) {
 	maxSize = n;

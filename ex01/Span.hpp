@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 15:05:32 by nazouz            #+#    #+#             */
-/*   Updated: 2024/09/02 17:22:59 by nazouz           ###   ########.fr       */
+/*   Updated: 2024/09/09 12:01:49 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class Span {
 	private:
 		unsigned int			maxSize;
 		std::vector<int>		container;
+		
+		Span();
 	public:
 		Span(unsigned int n);
 		Span(const Span& original);
